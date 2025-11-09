@@ -6,9 +6,7 @@ import plotly.graph_objects as go
 import plotly.express as px
 from io import StringIO
 
-# -------------------------
-# Page Configuration
-# -------------------------
+# page config
 st.set_page_config(
     page_title="Chud AI - Professional Fitness & Nutrition Platform",
     page_icon="🏋️",
@@ -16,9 +14,7 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# -------------------------
-# Custom CSS for Professional Styling
-# -------------------------
+## styling is from pure ai
 st.markdown("""
 <style>
     /* Import Google Fonts */
@@ -360,10 +356,8 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-
-# -------------------------
-# Compact Food DB
-# -------------------------
+## creating a static food dataframe
+## todo/- swap this out later for USDA data API
 FOOD_DB = [
     {"name": "Oats (1 cup cooked)", "cal": 150, "protein": 5, "carbs": 27, "fat": 3, "serving": "1 cup"},
     {"name": "Egg (large)", "cal": 78, "protein": 6, "carbs": 0.6, "fat": 5, "serving": "1 egg"},
@@ -384,9 +378,7 @@ FOOD_DB = [
 FOOD_DF = pd.DataFrame(FOOD_DB)
 
 
-# -------------------------
-# Activity & Goals
-# -------------------------
+## activity and goals
 ACTIVITY_FACTORS = {
     "Sedentary (little or no exercise)": 1.2,
     "Light (1-3 days/week)": 1.375,
@@ -401,9 +393,7 @@ GOAL_ADJUSTMENT = {
 }
 
 
-# -------------------------
-# Core Logic
-# -------------------------
+## main logic
 def calculate_bmr(sex: str, weight_kg: float, height_cm: float, age: int) -> float:
     if str(sex).lower().startswith('m'):
         return 10 * weight_kg + 6.25 * height_cm - 5 * age + 5
@@ -519,9 +509,7 @@ def ai_diet_suggestions(targets, last_plan_df):
     return tips
 
 
-# -------------------------
-# Initialize Session State
-# -------------------------
+# initilizing the session state
 if 'plan_generated' not in st.session_state:
     st.session_state.plan_generated = False
 if 'meal_plan_df' not in st.session_state:
@@ -532,9 +520,7 @@ if 'workout_plan' not in st.session_state:
     st.session_state.workout_plan = None
 
 
-# -------------------------
-# Export Function
-# -------------------------
+#functions to export
 def prepare_export_data():
     """Prepare data for CSV export"""
     if not st.session_state.meal_plan_df.empty:
@@ -570,9 +556,7 @@ def prepare_export_data():
     return ""
 
 
-# -------------------------
-# Main App
-# -------------------------
+## main portion
 def main():
     # Header
     st.markdown('<div class="main-header">CHUD AI</div>', unsafe_allow_html=True)
@@ -932,8 +916,6 @@ def display_ai_suggestions():
         """, unsafe_allow_html=True)
 
 
-# -------------------------
-# Run App
-# -------------------------
+## for app running
 if __name__ == "__main__":
     main()
