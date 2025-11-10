@@ -1,4 +1,4 @@
-# 🏋️ CHUD AI - Professional Fitness & Nutrition Platform
+# CHUD AI - Professional Fitness & Nutrition Platform
 
 A comprehensive fitness and nutrition planning application built with Streamlit that provides personalized meal plans, workout routines, and AI-powered health insights.
 
@@ -106,11 +106,11 @@ This project is open source and available for personal and educational use.
 
 - GitHub: [@itsmeayan45](https://github.com/itsmeayan45)
 
-## 🤝 Contributing
+## Contributing
 
 Contributions, issues, and feature requests are welcome!
 
-## 📞 Support
+## Support
 
 If you encounter any issues or have questions, please open an issue on GitHub.
 
